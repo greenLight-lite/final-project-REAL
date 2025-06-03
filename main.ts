@@ -220,9 +220,11 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.object, function (sprite, otherS
             character.setVelocity(50, 20)
         })
     } else {
-        story.spriteSayText(sprite, ".....", 15)
-        story.spriteSayText(sprite, "im gonna go in there", 15)
-        character.setVelocity(50, 0)
+        story.startCutscene(function () {
+            story.spriteSayText(sprite, ".....", 15)
+            story.spriteSayText(sprite, "im gonna go in there", 15)
+            story.spriteMoveToLocation(sprite, 140, 90, 50)
+        })
     }
 })
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -313,7 +315,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.opendoor, function (sprite, othe
         ffffffffffffffff
         `, SpriteKind.object)
     door.setPosition(140, 90)
-    story.cancelCurrentCutscene()
+    story.cancelAllCutscenes()
 })
 let door: Sprite = null
 let character: Sprite = null
