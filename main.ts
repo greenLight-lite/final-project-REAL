@@ -7,116 +7,6 @@ namespace SpriteKind {
     export const object = SpriteKind.create()
     export const opendoor = SpriteKind.create()
 }
-function moving () {
-    animation.runImageAnimation(
-    character,
-    [img`
-        . . . . . . . . . . . . . . 
-        . f f f . . . . . . f f f . 
-        f f f f f f f f f f f f f f 
-        f f f f 3 c c c c 3 f f f f 
-        f f 3 3 c c c c c c 3 3 f f 
-        . f c c c c c c c c c c f . 
-        . f f c c c 4 4 c c c f f . 
-        . f f f b f 4 4 f b f f f . 
-        . f f 4 1 f d d f 1 4 f f . 
-        . . f f d d d d d d f f . . 
-        . . e f e 4 4 4 4 e f e . . 
-        . e 4 f b 3 3 3 3 b f 4 e . 
-        . 4 d f 3 3 3 3 3 3 c d 4 . 
-        . 4 4 f 6 6 6 6 6 6 f 4 4 . 
-        . . . . f f f f f f . . . . 
-        . . . . f f . . f f . . . . 
-        `,img`
-        . . . . . . . . . . . . . . 
-        . f f f . . . . . . f f f . 
-        f f f f f f f f f f f f f f 
-        f f f f f c c c c f f f f f 
-        f f f f 3 c c c c 3 c f f f 
-        . f 3 3 c c c c c c 3 3 f . 
-        . f c c c c 4 4 c c c c f . 
-        . f f c b f 4 4 f b 4 f f . 
-        . f f 4 1 f d d f 1 4 f f . 
-        . . f f d d d d d d f f . . 
-        . . e f e 4 4 4 4 e f e . . 
-        . e 4 f b 3 3 3 3 b f 4 e . 
-        . 4 d f 3 3 3 3 3 3 c d 4 . 
-        . 4 4 f 6 6 6 6 6 6 f 4 4 . 
-        . . . . f f f f f f . . . . 
-        . . . . f f . . f f . . . . 
-        `,img`
-        . . . . . . . . . . . . . . 
-        . f f f . . . . . . f f f . 
-        f f f f f f f f f f f f f f 
-        f f f f f c c c c f f f f f 
-        f f f f 3 c c c c 3 f f f f 
-        . f 3 3 c c c c c c 3 3 f . 
-        . f c c c c 4 4 c c c c f . 
-        . f f c b f 4 4 f b 4 f f . 
-        . f f 4 1 f d d f 1 4 f f . 
-        . . . f d d d d d d f . . . 
-        . f f f e 4 4 4 4 e f f f . 
-        . f e f b 3 3 3 3 b f e f . 
-        . e 4 f 3 3 3 3 3 3 c 4 e . 
-        . 4 d f 6 6 6 6 6 6 f d 4 . 
-        . 4 4 . f f f f f f . 4 4 . 
-        . . . . f f . . f f . . . . 
-        `,img`
-        . . . . . . . . . . . . . . 
-        . f f f . . . . . . f f f . 
-        f f f f f f f f f f f f f f 
-        f f f c 3 c c c c 3 c f f f 
-        f f 3 3 c c c c c c 3 3 f f 
-        . f c c c c 4 4 c c c c f . 
-        . f f c c c 4 4 c c c f f . 
-        . f f f b f 4 4 f b f f f . 
-        . f f 4 1 f d d f 1 4 f f . 
-        . . f f d d d d d d f f . . 
-        . . e f e 4 4 4 4 e f e . . 
-        . e 4 f b 3 3 3 3 b f 4 e . 
-        . 4 d f 3 3 3 3 3 3 c d 4 . 
-        . 4 4 f 6 6 6 6 6 6 f 4 4 . 
-        . . . . f f f f f f . . . . 
-        . . . . f f . . f f . . . . 
-        `,img`
-        . . . . . . . . . . . . . . 
-        . f f f . . . . . . f f f . 
-        f f f f f f f f f f f f f f 
-        f f f f f c c c c f f f f f 
-        f f f f 3 c c c c 3 f f f f 
-        . f 3 3 c c c c c c 3 3 f . 
-        . f c c c c 4 4 c c c c f . 
-        . f f c b f 4 4 f b 4 f f . 
-        . f f 4 1 f d d f 1 4 f f . 
-        . . . f d d d d d d f . . . 
-        . f f f e 4 4 4 4 e f f f . 
-        . f e f b 3 3 3 3 b f e f . 
-        . e 4 f 3 3 3 3 3 3 c 4 e . 
-        . 4 d f 6 6 6 6 6 6 f d 4 . 
-        . 4 4 . f f f f f f . 4 4 . 
-        . . . . f f . . f f . . . . 
-        `,img`
-        . . . . . . . . . . . . . . 
-        . f f f . . . . . . f f f . 
-        f f f f f f f f f f f f f f 
-        f f f f f c c c c f f f f f 
-        f f f f 3 c c c c 3 f f f f 
-        . f 3 3 c c c c c c 3 3 f . 
-        . f c c c c 4 4 c c c c f . 
-        . f f c b f 4 4 f b 4 f f . 
-        . f f 4 1 f d d f 1 4 f f . 
-        . . f f d d d d d d f f . . 
-        . . e f e 4 4 4 4 e f e . . 
-        . e 4 f b 3 3 3 3 b f 4 e . 
-        . 4 d f 3 3 3 3 3 3 c d 4 . 
-        . 4 4 f 6 6 6 6 6 6 f 4 4 . 
-        . . . . f f f f f f . . . . 
-        . . . . f f . . f f . . . . 
-        `],
-    500,
-    true
-    )
-}
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
     character,
@@ -177,6 +67,7 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     )
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.object, function (sprite, otherSprite) {
+    animation.stopAnimation(animation.AnimationTypes.All, character)
     character.x += -30
     story.spriteSayText(character, "WHAATS THIs?")
     story.showPlayerChoices("Open door", "Leave it alone")
@@ -287,7 +178,6 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     )
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.opendoor, function (sprite, otherSprite) {
-    sprites.destroyAllSpritesOfKind(SpriteKind.Player)
     door = sprites.create(img`
         .eeeeeeeeeeeeee.
         ebddddddddddddbe
@@ -314,7 +204,12 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.opendoor, function (sprite, othe
         feffffffffffffef
         ffffffffffffffff
         `, SpriteKind.object)
+    sprites.destroyAllSpritesOfKind(SpriteKind.Player)
+    sprites.destroyAllSpritesOfKind(SpriteKind.opendoor)
+    music.play(music.melodyPlayable(music.bigCrash), music.PlaybackMode.UntilDone)
     door.setPosition(140, 90)
+    door.startEffect(effects.disintegrate, 500)
+    sprites.destroyAllSpritesOfKind(SpriteKind.object)
     story.cancelAllCutscenes()
 })
 let door: Sprite = null
