@@ -219,6 +219,10 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.object, function (sprite, otherS
             story.spriteSayText(character, "AHHHHHHHHHHH!!!!!!!!")
             character.setVelocity(50, 20)
         })
+    } else {
+        story.spriteSayText(sprite, ".....", 15)
+        story.spriteSayText(sprite, "im gonna go in there", 15)
+        character.setVelocity(50, 0)
     }
 })
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
