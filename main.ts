@@ -178,7 +178,7 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.object, function (sprite, otherSprite) {
     character.x += -30
-    story.spriteSayText(sprite, "WHAATS THIs?")
+    story.spriteSayText(character, "WHAATS THIs?")
     story.showPlayerChoices("Open door", "Leave it alone")
     door = sprites.create(img`
         .eeeeeeeeeeeeee.
@@ -208,6 +208,18 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.object, function (sprite, otherS
         `, SpriteKind.opendoor)
     sprites.destroyAllSpritesOfKind(SpriteKind.object)
     door.setPosition(140, 90)
+    if (story.checkLastAnswer("Leave it alone")) {
+        story.startCutscene(function () {
+            animation.runMovementAnimation(
+            character,
+            animation.animationPresets(animation.flyToCenter),
+            2000,
+            false
+            )
+            story.spriteSayText(character, "AHHHHHHHHHHH!!!!!!!!")
+            character.setVelocity(50, 20)
+        })
+    }
 })
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
@@ -267,6 +279,37 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     500,
     true
     )
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.opendoor, function (sprite, otherSprite) {
+    sprites.destroyAllSpritesOfKind(SpriteKind.Player)
+    door = sprites.create(img`
+        .eeeeeeeeeeeeee.
+        ebddddddddddddbe
+        edddedddeddeddde
+        edddddddddddddde
+        edddedddedddddde
+        eddddddddddeddde
+        edddedddedddddde
+        ebddddddddddddbe
+        ecbbbbbbbbbbbbee
+        ecffffffffffffee
+        ebeeeeeeeeeeeebe
+        ebeeeeeeeeee111e
+        fbeeeeeeeeee15df
+        feeeeeeeeeee5ddf
+        feebbeeeeeebbeef
+        feffffffffffffef
+        feddddddddddddef
+        fededdededdeddef
+        feddddddddddddef
+        fededdedddddddef
+        feddddddeddeddef
+        feddddddddddddef
+        feffffffffffffef
+        ffffffffffffffff
+        `, SpriteKind.object)
+    door.setPosition(140, 90)
+    story.cancelCurrentCutscene()
 })
 let door: Sprite = null
 let character: Sprite = null
