@@ -5,6 +5,7 @@ enum ActionKind {
 }
 namespace SpriteKind {
     export const object = SpriteKind.create()
+    export const opendoor = SpriteKind.create()
 }
 function moving () {
     animation.runImageAnimation(
@@ -116,69 +117,7 @@ function moving () {
     true
     )
 }
-sprites.onOverlap(SpriteKind.Player, SpriteKind.object, function (sprite, otherSprite) {
-    character.x += -30
-})
-controller.right.onEvent(ControllerButtonEvent.Released, function () {
-    animation.runImageAnimation(
-    character,
-    [img`
-        . . . . . . . . . . . . . . 
-        . f f f . f f f f f . . . . 
-        f f f f f c c c c f f . . . 
-        f f f f b c c c c c c f . . 
-        f f f c 3 c c c c c c f . . 
-        . f 3 3 c c c c c c c c f . 
-        . f f f c c c c c 4 c c f . 
-        . f f f f c c c 4 4 c f f . 
-        . f f 4 4 f b f 4 4 f f f . 
-        . f f 4 d 4 1 f d d c f . . 
-        . . f f f 4 d d d d f . . . 
-        . . 4 d d e 4 4 4 e f . . . 
-        . . e d d e 3 3 3 3 f . . . 
-        . . f e e f 6 6 6 6 f f . . 
-        . . f f f f f f f f f f . . 
-        . . . f f . . . f f f . . . 
-        `,img`
-        . . . . . . . . . . . . . . 
-        . f f f . f f f f f . . . . 
-        f f f f f c c c c f f . . . 
-        f f f f b c c c c c c f . . 
-        f f f c 3 c c c c c c f . . 
-        . f 3 3 c c c c c c c c f . 
-        . f f f c c c c c 4 c c f . 
-        . f f f f c c c 4 4 c f f . 
-        . f f 4 4 f b f 4 4 f f f . 
-        . . f 4 d 4 1 f d d f f . . 
-        . . f f f e e d d d f . . . 
-        . . . f 4 d d e 4 e f . . . 
-        . . . f e d d e 3 3 f . . . 
-        . . f f f e e f 6 6 f f . . 
-        . . f f f f f f f f f f . . 
-        . . . f f . . . f f f . . . 
-        `,img`
-        . f f f . f f f f f . . . . 
-        f f f f f c c c c f f . . . 
-        f f f f b c c c c c c f . . 
-        f f f c 3 c c c c c c f . . 
-        . f 3 3 c c c c c c c c f . 
-        . f f f c c c c c 4 c c f . 
-        . f f f f c c c 4 4 e f f . 
-        . f f 4 4 f b f 4 4 e f f . 
-        . . f 4 d 4 1 f d d f f . . 
-        . . f f f 4 d d d d f . . . 
-        . . . f e e 4 4 4 e f . . . 
-        . . . 4 d d e 3 3 3 f . . . 
-        . . . e d d e 3 3 3 f . . . 
-        . . . f e e f 6 6 6 f . . . 
-        . . . . f f f f f f . . . . 
-        . . . . . f f f . . . . . . 
-        `],
-    500,
-    true
-    )
-})
-controller.left.onEvent(ControllerButtonEvent.Released, function () {
+controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
     character,
     [img`
@@ -237,6 +176,99 @@ controller.left.onEvent(ControllerButtonEvent.Released, function () {
     true
     )
 })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.object, function (sprite, otherSprite) {
+    character.x += -30
+    story.spriteSayText(sprite, "WHAATS THIs?")
+    story.showPlayerChoices("Open door", "Leave it alone")
+    door = sprites.create(img`
+        .eeeeeeeeeeeeee.
+        effffffffffffffe
+        eccccccffffffffe
+        eccccceffffffffe
+        ecccbbeffffffffe
+        eccbbdeffffffffe
+        ecbdddeffffffffe
+        ecbdddeffffffffe
+        eceeeeeffffffffe
+        ecbbbeeffffffffe
+        ebeeeeeffffffffe
+        ebeee55ffffffffe
+        ebeee55ffffffffe
+        eceeeeeffffffffe
+        ecbdddefffffffee
+        ecbdddefffffffee
+        eccbddefffffffee
+        eccbddefffffffee
+        eccbddefffffffee
+        ecbbddefffffffee
+        ecbccdefffffffee
+        ecbbccefffffffee
+        ecccccefffffffee
+        eeeecceeeeeeeeee
+        `, SpriteKind.opendoor)
+    sprites.destroyAllSpritesOfKind(SpriteKind.object)
+    door.setPosition(140, 90)
+})
+controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
+    animation.runImageAnimation(
+    character,
+    [img`
+        . . . . . . . . . . . . . . 
+        . f f f . f f f f f . . . . 
+        f f f f f c c c c f f . . . 
+        f f f f b c c c c c c f . . 
+        f f f c 3 c c c c c c f . . 
+        . f 3 3 c c c c c c c c f . 
+        . f f f c c c c c 4 c c f . 
+        . f f f f c c c 4 4 c f f . 
+        . f f 4 4 f b f 4 4 f f f . 
+        . f f 4 d 4 1 f d d c f . . 
+        . . f f f 4 d d d d f . . . 
+        . . 4 d d e 4 4 4 e f . . . 
+        . . e d d e 3 3 3 3 f . . . 
+        . . f e e f 6 6 6 6 f f . . 
+        . . f f f f f f f f f f . . 
+        . . . f f . . . f f f . . . 
+        `,img`
+        . . . . . . . . . . . . . . 
+        . f f f . f f f f f . . . . 
+        f f f f f c c c c f f . . . 
+        f f f f b c c c c c c f . . 
+        f f f c 3 c c c c c c f . . 
+        . f 3 3 c c c c c c c c f . 
+        . f f f c c c c c 4 c c f . 
+        . f f f f c c c 4 4 c f f . 
+        . f f 4 4 f b f 4 4 f f f . 
+        . . f 4 d 4 1 f d d f f . . 
+        . . f f f e e d d d f . . . 
+        . . . f 4 d d e 4 e f . . . 
+        . . . f e d d e 3 3 f . . . 
+        . . f f f e e f 6 6 f f . . 
+        . . f f f f f f f f f f . . 
+        . . . f f . . . f f f . . . 
+        `,img`
+        . f f f . f f f f f . . . . 
+        f f f f f c c c c f f . . . 
+        f f f f b c c c c c c f . . 
+        f f f c 3 c c c c c c f . . 
+        . f 3 3 c c c c c c c c f . 
+        . f f f c c c c c 4 c c f . 
+        . f f f f c c c 4 4 e f f . 
+        . f f 4 4 f b f 4 4 e f f . 
+        . . f 4 d 4 1 f d d f f . . 
+        . . f f f 4 d d d d f . . . 
+        . . . f e e 4 4 4 e f . . . 
+        . . . 4 d d e 3 3 3 f . . . 
+        . . . e d d e 3 3 3 f . . . 
+        . . . f e e f 6 6 6 f . . . 
+        . . . . f f f f f f . . . . 
+        . . . . . f f f . . . . . . 
+        `],
+    500,
+    true
+    )
+})
+let door: Sprite = null
 let character: Sprite = null
 scene.setBackgroundImage(img`
     1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
@@ -378,7 +410,7 @@ character = sprites.create(img`
     . . . . f f f f f f . . . . 
     . . . . f f . . f f . . . . 
     `, SpriteKind.Player)
-let door = sprites.create(img`
+door = sprites.create(img`
     .eeeeeeeeeeeeee.
     ebddddddddddddbe
     edddedddeddeddde
