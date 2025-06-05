@@ -154,34 +154,106 @@ function get_outta_here () {
     pause(500)
     story.spriteSayText(character, "ouch...")
     story.spriteSayText(character, "i need to get home!")
-    for (let index = 0; index < 3; index++) {
-        door = sprites.create(img`
-            .eeeeeeeeeeeeee.
-            ebddddddddddddbe
-            edddedddeddeddde
-            edddddddddddddde
-            edddedddedddddde
-            eddddddddddeddde
-            edddedddedddddde
-            ebddddddddddddbe
-            ecbbbbbbbbbbbbee
-            ecffffffffffffee
-            ebeeeeeeeeeeeebe
-            ebeeeeeeeeee111e
-            fbeeeeeeeeee15df
-            feeeeeeeeeee5ddf
-            feebbeeeeeebbeef
-            feffffffffffffef
-            feddddddddddddef
-            fededdededdeddef
-            feddddddddddddef
-            fededdedddddddef
-            feddddddeddeddef
-            feddddddddddddef
-            feffffffffffffef
-            ffffffffffffffff
-            `, SpriteKind.object)
-    }
+    mySprite = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . 3 3 . . . . . . . . . . . 
+        . . . . . 3 3 3 3 3 3 3 3 3 3 . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, SpriteKind.Player)
+    mySprite.setPosition(100, 90)
+    door = sprites.create(img`
+        ................
+        ..eeeeeeeeeeee..
+        .ebddddddddddb..
+        .edddeddededdd..
+        .edddddddddddd..
+        .edddeddeddddd..
+        .eddddddddeddd..
+        .edddeddeddddd..
+        .ecbbbbbbbbbbe..
+        .ecffffffffffe..
+        .ebeeeeeeeeeeb..
+        .ebeeeeeeee111..
+        .fbeeeeeeee15d..
+        .feeeeeeeee5dd..
+        .feebbeeeebbee..
+        .fedddddddddde..
+        .fedededededde..
+        .fedddddddddde..
+        .fedededddddde..
+        .fedddddededde..
+        .fedddddddddde..
+        ................
+        ................
+        ................
+        `, SpriteKind.object)
+    story.spriteMoveToLocation(door, 10, 70, 100)
+    door_2 = sprites.create(img`
+        ................
+        ..eeeeeeeeeeee..
+        .ebddddddddddb..
+        .edddeddededdd..
+        .edddddddddddd..
+        .edddeddeddddd..
+        .eddddddddeddd..
+        .edddeddeddddd..
+        .ecbbbbbbbbbbe..
+        .ecffffffffffe..
+        .ebeeeeeeeeeeb..
+        .ebeeeeeeee111..
+        .fbeeeeeeee15d..
+        .feeeeeeeee5dd..
+        .feebbeeeebbee..
+        .fedddddddddde..
+        .fedededededde..
+        .fedddddddddde..
+        .fedededddddde..
+        .fedddddededde..
+        .fedddddddddde..
+        ................
+        ................
+        ................
+        `, SpriteKind.object)
+    story.spriteMoveToLocation(door_2, 10, door.y + 40, 100)
+    door_3 = sprites.create(img`
+        ................
+        ..eeeeeeeeeeee..
+        .ebddddddddddb..
+        .edddeddededdd..
+        .edddddddddddd..
+        .edddeddeddddd..
+        .eddddddddeddd..
+        .edddeddeddddd..
+        .ecbbbbbbbbbbe..
+        .ecffffffffffe..
+        .ebeeeeeeeeeeb..
+        .ebeeeeeeee111..
+        .fbeeeeeeee15d..
+        .feeeeeeeee5dd..
+        .feebbeeeebbee..
+        .fedddddddddde..
+        .fedededededde..
+        .fedddddddddde..
+        .fedededddddde..
+        .fedddddededde..
+        .fedddddddddde..
+        ................
+        ................
+        ................
+        `, SpriteKind.object)
+    story.spriteMoveToLocation(door_3, 10, door.y - 40, 100)
 }
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
@@ -389,6 +461,9 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.opendoor, function (sprite, othe
     story.cancelAllCutscenes()
     get_outta_here()
 })
+let door_3: Sprite = null
+let door_2: Sprite = null
+let mySprite: Sprite = null
 let door: Sprite = null
 let character: Sprite = null
 scene.setBackgroundImage(img`
