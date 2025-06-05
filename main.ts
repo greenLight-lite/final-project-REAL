@@ -6,6 +6,7 @@ enum ActionKind {
 namespace SpriteKind {
     export const object = SpriteKind.create()
     export const opendoor = SpriteKind.create()
+    export const sensor = SpriteKind.create()
 }
 function get_outta_here () {
     scene.setBackgroundImage(img`
@@ -154,34 +155,55 @@ function get_outta_here () {
     pause(500)
     story.spriteSayText(character, "ouch...")
     story.spriteSayText(character, "i need to get home!")
-    for (let index = 0; index < 3; index++) {
-        door = sprites.create(img`
-            .eeeeeeeeeeeeee.
-            ebddddddddddddbe
-            edddedddeddeddde
-            edddddddddddddde
-            edddedddedddddde
-            eddddddddddeddde
-            edddedddedddddde
-            ebddddddddddddbe
-            ecbbbbbbbbbbbbee
-            ecffffffffffffee
-            ebeeeeeeeeeeeebe
-            ebeeeeeeeeee111e
-            fbeeeeeeeeee15df
-            feeeeeeeeeee5ddf
-            feebbeeeeeebbeef
-            feffffffffffffef
-            feddddddddddddef
-            fededdededdeddef
-            feddddddddddddef
-            fededdedddddddef
-            feddddddeddeddef
-            feddddddddddddef
-            feffffffffffffef
-            ffffffffffffffff
-            `, SpriteKind.object)
-    }
+    sensorss = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . 3 3 . . . . . . . . . . . 
+        . . . . . 3 3 3 3 3 3 3 3 3 3 . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, SpriteKind.sensor)
+    sensorss.setPosition(100, 90)
+}
+function chosing_door_function () {
+    story.showPlayerChoices("Open door", "Leave it alone")
+    door = sprites.create(img`
+        .eeeeeeeeeeeeee.
+        effffffffffffffe
+        eccccccffffffffe
+        eccccceffffffffe
+        ecccbbeffffffffe
+        eccbbdeffffffffe
+        ecbdddeffffffffe
+        ecbdddeffffffffe
+        eceeeeeffffffffe
+        ecbbbeeffffffffe
+        ebeeeeeffffffffe
+        ebeee55ffffffffe
+        ebeee55ffffffffe
+        eceeeeeffffffffe
+        ecbdddefffffffee
+        ecbdddefffffffee
+        eccbddefffffffee
+        eccbddefffffffee
+        eccbddefffffffee
+        ecbbddefffffffee
+        ecbccdefffffffee
+        ecbbccefffffffee
+        ecccccefffffffee
+        eeeecceeeeeeeeee
+        `, SpriteKind.opendoor)
+    sprites.destroyAllSpritesOfKind(SpriteKind.object)
 }
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
@@ -389,6 +411,17 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.opendoor, function (sprite, othe
     story.cancelAllCutscenes()
     get_outta_here()
 })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.sensor, function (sprite, otherSprite) {
+    story.showPlayerChoices("Door 1", "door 2", "door 3")
+    if (story.checkLastAnswer("door 1")) {
+    	
+    } else if (story.checkLastAnswer("door 2")) {
+    	
+    } else if (story.checkLastAnswer("door 3")) {
+    	
+    }
+})
+let sensorss: Sprite = null
 let door: Sprite = null
 let character: Sprite = null
 scene.setBackgroundImage(img`
