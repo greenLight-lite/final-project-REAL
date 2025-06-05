@@ -150,7 +150,38 @@ function get_outta_here () {
         `, SpriteKind.Player)
     character.startEffect(effects.fire, 500)
     character.setPosition(0, 0)
-    story.spriteMoveToLocation(character, 140, 90, 100)
+    story.spriteMoveToLocation(character, 130, 90, 100)
+    pause(500)
+    story.spriteSayText(character, "ouch...")
+    story.spriteSayText(character, "i need to get home!")
+    for (let index = 0; index < 3; index++) {
+        door = sprites.create(img`
+            .eeeeeeeeeeeeee.
+            ebddddddddddddbe
+            edddedddeddeddde
+            edddddddddddddde
+            edddedddedddddde
+            eddddddddddeddde
+            edddedddedddddde
+            ebddddddddddddbe
+            ecbbbbbbbbbbbbee
+            ecffffffffffffee
+            ebeeeeeeeeeeeebe
+            ebeeeeeeeeee111e
+            fbeeeeeeeeee15df
+            feeeeeeeeeee5ddf
+            feebbeeeeeebbeef
+            feffffffffffffef
+            feddddddddddddef
+            fededdededdeddef
+            feddddddddddddef
+            fededdedddddddef
+            feddddddeddeddef
+            feddddddddddddef
+            feffffffffffffef
+            ffffffffffffffff
+            `, SpriteKind.object)
+    }
 }
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
