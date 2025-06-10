@@ -244,6 +244,86 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.opendoor, function (sprite, othe
     story.cancelAllCutscenes()
     get_outta_here()
 })
+function doorSetup () {
+    door = sprites.create(img`
+        .eeeeeeeeeeeeee.
+        ebddddddddddddbe
+        edddedddeddeddde
+        edddddddddddddde
+        edddedddedddddde
+        eddddddddddeddde
+        edddedddedddddde
+        ebddddddddddddbe
+        ecbbbbbbbbbbbbee
+        ecffffffffffffee
+        ebeeeeeeeeeeeebe
+        ebeeeeeeeeee111e
+        fbeeeeeeeeee15df
+        feeeeeeeeeee5ddf
+        feebbeeeeeebbeef
+        feffffffffffffef
+        feddddddddddddef
+        fededdededdeddef
+        feddddddddddddef
+        fededdedddddddef
+        feddddddeddeddef
+        feddddddddddddef
+        feffffffffffffef
+        ffffffffffffffff
+        `, SpriteKind.object)
+    door_2 = sprites.create(img`
+        .eeeeeeeeeeeeee.
+        ebddddddddddddbe
+        edddedddeddeddde
+        edddddddddddddde
+        edddedddedddddde
+        eddddddddddeddde
+        edddedddedddddde
+        ebddddddddddddbe
+        ecbbbbbbbbbbbbee
+        ecffffffffffffee
+        ebeeeeeeeeeeeebe
+        ebeeeeeeeeee111e
+        fbeeeeeeeeee15df
+        feeeeeeeeeee5ddf
+        feebbeeeeeebbeef
+        feffffffffffffef
+        feddddddddddddef
+        fededdededdeddef
+        feddddddddddddef
+        fededdedddddddef
+        feddddddeddeddef
+        feddddddddddddef
+        feffffffffffffef
+        ffffffffffffffff
+        `, SpriteKind.object)
+    door_3 = sprites.create(img`
+        .eeeeeeeeeeeeee.
+        ebddddddddddddbe
+        edddedddeddeddde
+        edddddddddddddde
+        edddedddedddddde
+        eddddddddddeddde
+        edddedddedddddde
+        ebddddddddddddbe
+        ecbbbbbbbbbbbbee
+        ecffffffffffffee
+        ebeeeeeeeeeeeebe
+        ebeeeeeeeeee111e
+        fbeeeeeeeeee15df
+        feeeeeeeeeee5ddf
+        feebbeeeeeebbeef
+        feffffffffffffef
+        feddddddddddddef
+        fededdededdeddef
+        feddddddddddddef
+        fededdedddddddef
+        feddddddeddeddef
+        feddddddddddddef
+        feffffffffffffef
+        ffffffffffffffff
+        `, SpriteKind.object)
+}
 sprites.onOverlap(SpriteKind.Player, SpriteKind.sensor, function (sprite, otherSprite) {
     story.showPlayerChoices("Door 1", "door 2", "door 3")
     if (story.checkLastAnswer("door 1")) {
@@ -422,6 +502,8 @@ function get_outta_here () {
     sensorss.setPosition(100, 90)
 }
 let sensorss: Sprite = null
+let door_3: Sprite = null
+let door_2: Sprite = null
 let door: Sprite = null
 let character: Sprite = null
 scene.setBackgroundImage(img`
