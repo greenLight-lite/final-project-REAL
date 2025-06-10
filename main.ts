@@ -246,83 +246,74 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.opendoor, function (sprite, othe
 })
 function doorSetup () {
     door = sprites.create(img`
-        .eeeeeeeeeeeeee.
-        ebddddddddddddbe
-        edddedddeddeddde
-        edddddddddddddde
-        edddedddedddddde
-        eddddddddddeddde
-        edddedddedddddde
-        ebddddddddddddbe
-        ecbbbbbbbbbbbbee
-        ecffffffffffffee
-        ebeeeeeeeeeeeebe
-        ebeeeeeeeeee111e
-        fbeeeeeeeeee15df
-        feeeeeeeeeee5ddf
-        feebbeeeeeebbeef
-        feffffffffffffef
-        feddddddddddddef
-        fededdededdeddef
-        feddddddddddddef
-        fededdedddddddef
-        feddddddeddeddef
-        feddddddddddddef
-        feffffffffffffef
-        ffffffffffffffff
+        . . . . . . . . . . . . . . . 
+        . . . e e e e e e e e . . . . 
+        . . e b d d d d d d b e . . . 
+        . . e d d d d d d d d e . . . 
+        . . e d e d e d e d d e . . . 
+        . . e d d d d d d d d e . . . 
+        . . e d d d d d d d d e . . . 
+        . . e d e d e d e d d e . . . 
+        . . e d d d d d d d d e . . . 
+        . . e b d d d d d d d e . . . 
+        . . e c b b b b b 5 5 1 . . . 
+        . . e c f f f f f 4 5 5 . . . 
+        . . e b e e e e e 4 4 e . . . 
+        . . e b e e e e e e e e . . . 
+        . . e b e e e e e e e e . . . 
+        . . f b e e e e e e e f . . . 
+        . . f e e e e e e e e f . . . 
+        . . f e e b b e e e e f . . . 
+        . . . e f f f f f f f . . . . 
+        . . . . . . . . . . . . . . . 
         `, SpriteKind.object)
+    story.spriteMoveToLocation(door, 10, 70, 100)
     door_2 = sprites.create(img`
-        .eeeeeeeeeeeeee.
-        ebddddddddddddbe
-        edddedddeddeddde
-        edddddddddddddde
-        edddedddedddddde
-        eddddddddddeddde
-        edddedddedddddde
-        ebddddddddddddbe
-        ecbbbbbbbbbbbbee
-        ecffffffffffffee
-        ebeeeeeeeeeeeebe
-        ebeeeeeeeeee111e
-        fbeeeeeeeeee15df
-        feeeeeeeeeee5ddf
-        feebbeeeeeebbeef
-        feffffffffffffef
-        feddddddddddddef
-        fededdededdeddef
-        feddddddddddddef
-        fededdedddddddef
-        feddddddeddeddef
-        feddddddddddddef
-        feffffffffffffef
-        ffffffffffffffff
+        . . . . . . . . . . . . . . . 
+        . . . e e e e e e e e . . . . 
+        . . e b d d d d d d b e . . . 
+        . . e d d d d d d d d e . . . 
+        . . e d e d e d e d d e . . . 
+        . . e d d d d d d d d e . . . 
+        . . e d d d d d d d d e . . . 
+        . . e d e d e d e d d e . . . 
+        . . e d d d d d d d d e . . . 
+        . . e b d d d d d d d e . . . 
+        . . e c b b b b b 5 5 1 . . . 
+        . . e c f f f f f 4 5 5 . . . 
+        . . e b e e e e e 4 4 e . . . 
+        . . e b e e e e e e e e . . . 
+        . . e b e e e e e e e e . . . 
+        . . f b e e e e e e e f . . . 
+        . . f e e e e e e e e f . . . 
+        . . f e e b b e e e e f . . . 
+        . . . e f f f f f f f . . . . 
+        . . . . . . . . . . . . . . . 
         `, SpriteKind.object)
+    story.spriteMoveToLocation(door_2, 10, door.y - 30, 100)
     door_3 = sprites.create(img`
-        .eeeeeeeeeeeeee.
-        ebddddddddddddbe
-        edddedddeddeddde
-        edddddddddddddde
-        edddedddedddddde
-        eddddddddddeddde
-        edddedddedddddde
-        ebddddddddddddbe
-        ecbbbbbbbbbbbbee
-        ecffffffffffffee
-        ebeeeeeeeeeeeebe
-        ebeeeeeeeeee111e
-        fbeeeeeeeeee15df
-        feeeeeeeeeee5ddf
-        feebbeeeeeebbeef
-        feffffffffffffef
-        feddddddddddddef
-        fededdededdeddef
-        feddddddddddddef
-        fededdedddddddef
-        feddddddeddeddef
-        feddddddddddddef
-        feffffffffffffef
-        ffffffffffffffff
+        . . . . . . . . . . . . . . . 
+        . . . e e e e e e e e . . . . 
+        . . e b d d d d d d b e . . . 
+        . . e d d d d d d d d e . . . 
+        . . e d e d e d e d d e . . . 
+        . . e d d d d d d d d e . . . 
+        . . e d d d d d d d d e . . . 
+        . . e d e d e d e d d e . . . 
+        . . e d d d d d d d d e . . . 
+        . . e b d d d d d d d e . . . 
+        . . e c b b b b b 5 5 1 . . . 
+        . . e c f f f f f 4 5 5 . . . 
+        . . e b e e e e e 4 4 e . . . 
+        . . e b e e e e e e e e . . . 
+        . . e b e e e e e e e e . . . 
+        . . f b e e e e e e e f . . . 
+        . . f e e e e e e e e f . . . 
+        . . f e e b b e e e e f . . . 
+        . . . e f f f f f f f . . . . 
+        . . . . . . . . . . . . . . . 
         `, SpriteKind.object)
+    story.spriteMoveToLocation(door_3, 10, door.y + 30, 100)
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.sensor, function (sprite, otherSprite) {
     story.showPlayerChoices("Door 1", "door 2", "door 3")
@@ -500,6 +491,7 @@ function get_outta_here () {
         . . . . . . . . . . . . . . . . 
         `, SpriteKind.sensor)
     sensorss.setPosition(100, 90)
+    doorSetup()
 }
 let sensorss: Sprite = null
 let door_3: Sprite = null
