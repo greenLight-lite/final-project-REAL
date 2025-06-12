@@ -568,6 +568,7 @@ function door_2_option () {
         `)
     character.setBounceOnWall(true)
     character.setVelocity(50, 50)
+    pause(2000)
     game.gameOver(false)
 }
 function door_1_option () {
@@ -696,6 +697,7 @@ function door_1_option () {
         `)
     character.setBounceOnWall(true)
     character.setVelocity(50, 50)
+    pause(500)
     game.gameOver(false)
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.sensor, function (sprite, otherSprite) {
