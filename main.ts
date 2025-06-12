@@ -132,6 +132,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.object, function (sprite, otherS
     sprites.destroyAllSpritesOfKind(SpriteKind.object)
     door.setPosition(140, 90)
     if (story.checkLastAnswer("Leave it alone")) {
+        music.rest(music.beat(BeatFraction.Half))
         story.startCutscene(function () {
             animation.runMovementAnimation(
             character,
@@ -144,6 +145,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.object, function (sprite, otherS
         })
     } else {
         story.startCutscene(function () {
+            music.rest(music.beat(BeatFraction.Half))
             story.spriteSayText(sprite, ".....", 15)
             story.spriteSayText(sprite, "im gonna go in there", 15)
             story.spriteMoveToLocation(sprite, 140, 90, 50)
