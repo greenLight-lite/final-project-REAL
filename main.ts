@@ -209,6 +209,7 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     )
 })
 function door_3_option () {
+    sprites.destroyAllSpritesOfKind(SpriteKind.object)
     scene.setBackgroundImage(img`
         1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
         1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
@@ -331,8 +332,71 @@ function door_3_option () {
         cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
         cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
         `)
+    mySprite = sprites.create(img`
+        .........................e2ee22e22e.........................
+        .....................2222eeee22e22e2222.....................
+        .................2222e222e2ee22eeee22ee2222.................
+        .............ee22e222eeeee2ee22e22eeeee22ee22e..............
+        .............ee22e222eeeee2ee22e22eeeee22ee22e..............
+        ..........eeeee22e222e222e2ee22e22e22ee22ee22eeeee..........
+        ......2222e22ee22eeeee222e2ee22e22e22eeeeee22e222e2222......
+        ...222eeeee22ee22e222e222eeee22eeee22ee22ee22e222eeeee22....
+        4cc222e222e22eeeee222e222e2ee22e22e22ee22eeeee222e222e22ccc4
+        4cc222e222e22eeeee222e222e2ee22e22e22ee22eeeee222e222e22ccc4
+        6c6eeee222e22ee22e222e222e2ee22e22e22ee22ee22e222e222eee66c6
+        466222e222eeeee22e222eeeee2ee22e22eeeee22ee22eeeee222e226664
+        466222e222e22ee22eeeee222e2ee22e22e22eeeeee22e222e222e226664
+        4cc222eeeee22ee22e222e222eeee22eeee22ee22ee22e222eeeee22ccc4
+        4cc222eeeee22ee22e222e222eeee22eeee22ee22ee22e222eeeee22ccc4
+        6c6222e222e22eeeee222e222e2ee22e22e22ee22eeeee222e222e2266c6
+        466eeee222e22ee22e222e222e2ee22e22e22ee22ee22e222e222eee6664
+        466222e222eeeee22e222e222e2ee22e22e22ee22ee22eeeee222e226664
+        466222e222eeeee22e222e222e2ee22e22e22ee22ee22eeeee222e226664
+        4cc222e222e22ee22e222eeeee2ee22e22eeeee22ee22e222e222e22ccc4
+        6c6222eeeee22ee22eeeee222eeee22eeee22eeeeee22e222eeeee2266c6
+        466222e222e22eeeee222e222e2ee22e22e22ee22eeeee222e222e226664
+        466eeee222e22ee22e222e222e2ee22e22e22ee22ee22e222e222eee6664
+        466eeee222e22ee22e222e222e2ee22e22e22ee22ee22e222e222eee6664
+        4cc222e222eeeee22e222e222e2ee22e22e22ee22ee22eeeee222e22ccc4
+        6c6222e222e22ee22e222e222eeee22eeee22ee22ee22e222e222e2266c6
+        466222eeeee22ee22e222eeeecc66666ccceeee22ee22e222eeeee226664
+        466222e222e22ee22eeeeccc666666666666ccceeee22e222e222e226664
+        466222e222e22ee22eeeeccc666666666666ccceeee22e222e222e226664
+        4cceeee222e22eeeeccc666666cccccccc666666ccceee222e222eeeccc4
+        6c6222e222eeeccc666666ccc6444444446cc6666666cceeee222e2266c6
+        466222e222cc666666ccc644444444444444466cc6666666cc222e226664
+        466222e222cc666666ccc644444444444444466cc6666666cc222e226664
+        466222cc66666cccc64444444444444444444444466ccc66666ccc226664
+        4cccc66666ccc66444bbcc666666666666666cccb44446cccc66666cccc4
+        cccccccccc66666666ccb444444444444444444bc666666666cccccccccc
+        64444444444444446c44444444444444444444444cc64444444444444446
+        64444444444444446c44444444444444444444444cc64444444444444446
+        66cbb44444444444cb44111111111111111111114bbc44444444444bcc66
+        666ccccccccccccccd11666666666666666666661ddccccccccccccc6666
+        6666644444444444c1116eeeeeeeeeeeeeeeeee6111c4444444444466666
+        666ee22222222ee4c166e4ee44e444e444e44eee611c4e222222222e6666
+        666ee22222222ee4c166e4ee44e444e444e44eee611c4e222222222e6666
+        666eeeeeeeeeeee4c166e4ee44e444e444e44eee611c4eeeeeeeeeee6666
+        666eeddddddddee4c666f4ee4effffffffe44eee666c4eddddddddde6666
+        666eedffddffdee4c666f4eeffffffffffff4eee666c4eddffdfffde6666
+        666eedffddffdee4c666f4eeffffffffffff4eee666c4eddffdfffde6666
+        666eedccddccdee4c666f4eeffffffffffffeeee666c4eddccdcccde6666
+        666eeddddddddee4c666f4eeeeeeeeeeeeeeeeee666c4eddddddddde6666
+        c66eedffddffdee4c666e4ee44e444e444e44eee666c4eddffdfffde666c
+        c66eedccddccdee4c666e4ee44e444e444e44eee666c4eddccdcccde666c
+        c66eedccddccdee4c666e4ee44e444e444e44eee666c4eddccdcccde666c
+        cc66666666666664c666e4ee44e444e444feeeee666c46666666666666cc
+        .c66644444444444c666e4ee44e444e444fffffe666c44444444444666c.
+        ..c664eeee4eeee4c666f4ee44e444e444f44ffe666c4eeee4eeee46cc..
+        ...cc4eeee4eeee4c666f4ee44e444e444effeee666c4eeee4eeee4c....
+        ...cc4eeee4eeee4c666f4ee44e444e444effeee666c4eeee4eeee4c....
+        .....64444444444c666f4ee44e444e444e44eee666c44444444446.....
+        ......64eeee4444c666f4ee44e444e444e44eee666c4444eee446......
+        .......6cccc6666c666e4ee44e444e444e44eee666c6666ccc66.......
+        `, SpriteKind.object)
+    mySprite.setPosition(132, 98)
     story.printText("you made it home!", 50, 50, 15)
-    pause(500)
+    pause(2000)
     game.gameOver(true)
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.opendoor, function (sprite, otherSprite) {
@@ -443,7 +507,7 @@ function doorSetup () {
     story.spriteMoveToLocation(door_3, 10, door.y + 30, 100)
 }
 function door_2_option () {
-    scene.cameraShake(4, 500)
+    sprites.destroyAllSpritesOfKind(SpriteKind.object)
     scene.setBackgroundImage(img`
         8fffffffffffffffffffffffff88fffff88ffff8998889999999989988888989999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
         ffffffffffffffffffffffffff8fffff88ff9f88889889999999989998888898999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
@@ -567,12 +631,14 @@ function door_2_option () {
         6cccccccccccccc66666ccccccccccccccccccc666ccccc6666ccccccccccccccf666666666666ff6666ffffffff6666666666666666666ccccccccccccccc6cccccccccccccccccccccccccccccccc8
         `)
     character.setBounceOnWall(true)
-    character.setVelocity(50, 50)
-    pause(2000)
+    character.setVelocity(10, 10)
+    story.spriteSayText(character, "i cant swim!")
+    pause(5000)
     game.gameOver(false)
 }
 function door_1_option () {
-    scene.cameraShake(4, 500)
+    sprites.destroyAllSpritesOfKind(SpriteKind.object)
+    scene.cameraShake(5, 500)
     scene.setBackgroundImage(img`
         ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
         ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
@@ -697,7 +763,8 @@ function door_1_option () {
         `)
     character.setBounceOnWall(true)
     character.setVelocity(50, 50)
-    pause(500)
+    story.spriteSayText(character, "i cant breathe!")
+    pause(2000)
     game.gameOver(false)
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.sensor, function (sprite, otherSprite) {
@@ -710,6 +777,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.sensor, function (sprite, otherS
     } else if (story.checkLastAnswer("door 3")) {
         door_3_option()
     }
+    scene.cameraShake(5, 1000)
 })
 function get_outta_here () {
     scene.setBackgroundImage(img`
@@ -883,6 +951,7 @@ function get_outta_here () {
 let sensorss: Sprite = null
 let door_3: Sprite = null
 let door_2: Sprite = null
+let mySprite: Sprite = null
 let door: Sprite = null
 let character: Sprite = null
 scene.setBackgroundImage(img`
