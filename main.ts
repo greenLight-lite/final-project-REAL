@@ -571,6 +571,7 @@ function door_2_option () {
     game.gameOver(false)
 }
 function door_1_option () {
+    scene.cameraShake(4, 500)
     scene.setBackgroundImage(img`
         ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
         ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
@@ -693,7 +694,6 @@ function door_1_option () {
         ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
         ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
         `)
-    scene.cameraShake(4, 500)
     character.setBounceOnWall(true)
     character.setVelocity(50, 50)
     game.gameOver(false)
@@ -702,81 +702,10 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.sensor, function (sprite, otherS
     pause(350)
     story.showPlayerChoices("Door 1", "door 2", "door 3")
     if (story.checkLastAnswer("door 1")) {
-        sprites.destroy(door)
-        door = sprites.create(img`
-            . . . . . . . . . . . . . . . 
-            . . . e e e e e e e e . . . . 
-            . . e b c c c c f f f e . . . 
-            . . e d d f c c f f f e . . . 
-            . . e d e f c c f f f e . . . 
-            . . e d d c c c f f f e . . . 
-            . . e d d c c e f f f e . . . 
-            . . e d e c c e f f f e . . . 
-            . . e d d c c e f f f e . . . 
-            . . e b d c c e f f f e . . . 
-            . . e c b 5 5 e f f f c . . . 
-            . . e c f 5 5 f f f f c . . . 
-            . . e b e c e f f f f e . . . 
-            . . e b c c e f f f f e . . . 
-            . . e b c e e f f f f e . . . 
-            . . f b c e f f f f f e . . . 
-            . . f c e e f f f f f e . . . 
-            . . f e f f f f f f f e . . . 
-            . . . e e e e e e e e . . . . 
-            . . . . . . . . . . . . . . . 
-            `, SpriteKind.opendoor)
-        door.setPosition(10, 70)
+        door_1_option()
     } else if (story.checkLastAnswer("door 2")) {
-        sprites.destroy(door_2)
-        door_2 = sprites.create(img`
-            . . . . . . . . . . . . . . . 
-            . . . e e e e e e e e . . . . 
-            . . e b c c c c f f f e . . . 
-            . . e d d f c c f f f e . . . 
-            . . e d e f c c f f f e . . . 
-            . . e d d c c c f f f e . . . 
-            . . e d d c c e f f f e . . . 
-            . . e d e c c e f f f e . . . 
-            . . e d d c c e f f f e . . . 
-            . . e b d c c e f f f e . . . 
-            . . e c b 5 5 e f f f c . . . 
-            . . e c f 5 5 f f f f c . . . 
-            . . e b e c e f f f f e . . . 
-            . . e b c c e f f f f e . . . 
-            . . e b c e e f f f f e . . . 
-            . . f b c e f f f f f e . . . 
-            . . f c e e f f f f f e . . . 
-            . . f e f f f f f f f e . . . 
-            . . . e e e e e e e e . . . . 
-            . . . . . . . . . . . . . . . 
-            `, SpriteKind.opendoor)
-        door_2.setPosition(10, door.y - 30)
         door_2_option()
     } else if (story.checkLastAnswer("door 3")) {
-        sprites.destroy(door_3)
-        door_3 = sprites.create(img`
-            . . . . . . . . . . . . . . . 
-            . . . e e e e e e e e . . . . 
-            . . e b c c c c f f f e . . . 
-            . . e d d f c c f f f e . . . 
-            . . e d e f c c f f f e . . . 
-            . . e d d c c c f f f e . . . 
-            . . e d d c c e f f f e . . . 
-            . . e d e c c e f f f e . . . 
-            . . e d d c c e f f f e . . . 
-            . . e b d c c e f f f e . . . 
-            . . e c b 5 5 e f f f c . . . 
-            . . e c f 5 5 f f f f c . . . 
-            . . e b e c e f f f f e . . . 
-            . . e b c c e f f f f e . . . 
-            . . e b c e e f f f f e . . . 
-            . . f b c e f f f f f e . . . 
-            . . f c e e f f f f f e . . . 
-            . . f e f f f f f f f e . . . 
-            . . . e e e e e e e e . . . . 
-            . . . . . . . . . . . . . . . 
-            `, SpriteKind.opendoor)
-        door_3.setPosition(10, door.y + 30)
         door_3_option()
     }
 })
